@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,700&display=swap');
+
+body {
+    background-color: aquamarine ;
+}
+
+/* Moves the left card out of the viewport */
+.hiddenLeft {
+    transform: translateX(-100vw);
+}
+
+/* Moves the right card out of the viewport */
+.hiddenRight {
+    transform: translateX(100vw);
+}
+ 
+/* Card backing is displayed when the game is not in play or when only showing the
+current player taking their turn */
+
+
+.cardBacking h2 {
+    font-family: 'Kanit', sans-serif;
+    margin: 0;
+    font-size: 36px;
+    position: relative;
+    top: 100px;
+    left: 18px;
+}
+
+.cardBacking h3 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 26px;
+    margin: 0;
+    color: white;
+    position: relative;
+    top: 100px;
+    left: 45px;
+}
+ 
+.card1 {
+    float: left;
+    position: absolute;
+    left: 54px;
+}
+
+.card2 {
+    float: right;
+    position: absolute;
+    right: 55px;
+}
+
+#cardBack1{
+    float: left;
+    position: absolute;
+    left: 54px;
+}
+
+#cardBack2{
+    float: right;
+    position: absolute;
+    right: 55px;
+}
+
+/* The container element of the cards, buttons and score panel */
+.cardBoard {
+    position: relative;
+    background-color: cadetblue;
+    height: 665px;
+    width: 700px;
+    float: left;
+    padding: 60px;
+    margin: 5% 200px 0 25%;
+    border-radius: 10px;
+    box-sizing: border-box;
+
+}
+
+/* The panel containing the scores and winning player */
+.statsPanel {
+    box-sizing: border-box;
+    background-color: white;
+    float: left;
+    min-height: 42px;
+    border-radius: 10px;
+    padding: 1% 0%;
+    position: absolute;
+    bottom: 26px;
+    left: 56px;
+    width: 84%;
+    font-family: 'Kanit', sans-serif;
+} 
+
+.statsPanel button {
+    float: left;
+    width: 128px;
+    padding: 8px;
+    margin: 10px 83px;
+    background-color: lightslategrey;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.statsPanel div {
+    margin: 0 47px;
+    padding: 1px;
+}
+
+.statsPanel p {
+    display: block;
+    margin: 0;
+    padding: 2px 2px;
+}
+
+.statsPanel a {
+    display: block;
+    margin: 0;
+    padding: 2px 2px;
+    font-size: 30px;
+    color: white;
+    background-color: black;
+}
+
+.statsPanelLeft {
+    float: left;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+ 
+.statsPanelCenter{
+    float: left;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.statsPanelRight {
+    float: left;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.cardContainerOuter {
+    background-color: grey;
+    padding: 10px;
+    width: 260px;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.cardContainerInner {
+    background-color: grey;
+    border: 3px solid yellow;
+    width: 255px;
+    height: 345px;
+    border-radius: 6px;
+
+}
+
+/* Styling for the card front */
+
+.cardBody {
+    background-color: grey;
+    height: 345px;
+    border-radius: 2px;
+}
+
+.cardTop {
+    background-color:grey
+}
+
+.cardBottom {
+    background-color: greenyellow;
+
+}
+
+.categories {
+    position: relative;
+    left: 0;
+}
+
+.cardTop img {
+    width: 100%;
+    height: 150px;
+}
+
+.cardBottom a {
+    display: block;
+    background-color: yellow;
+    font-family: 'Kanit', sans-serif;
+
+}
+
+.catLeft {
+    float: left;
+    width: 145px;
+    text-align: right;
+    padding: 2px 8px 0px 0px;
+    margin: 3px 0 1px 20px;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.catRight {
+    float: right;
+    width: 68px;
+    padding: 2px 2px 0px 3px;
+    text-align: left;
+    margin: 3px 9px 0 0;
+    clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+}
+
+.carName {
+    font-family: 'Kanit', sans-serif;
+    color: whitesmoke;
+    font-size: 24px;
+    margin: 0;
+    padding-left: 65px;
+}
+
+button {
+    float: left;
+    position: absolute;
+    bottom: 155px;
+    left: 54px;
+    width: 592px;
+    height: 32px;
+    border-radius: 10px;
+    background-color: lightgrey;
+    font-family: 'Kanit', sans-serif;
+}
+
+/* Removes the pointer event from clicking the number value so the category
+title must be clicked to execute the functions */
+.noPointer {
+    pointer-events: none;
+
+} 
+
+.winningCard {
+    animation-name: cardEnlarge;
+    animation-duration: 2s;
+}
+
+.losingCard {
+    animation-name: cardShrink;
+    animation-duration: 2s;
+}
+
+/* Adds the animation for the winning card */
+@keyframes cardEnlarge {
+    0% { 
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Adds the animation for the losing card */
+@keyframes cardShrink {
+    0% { 
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
