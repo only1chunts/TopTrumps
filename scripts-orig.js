@@ -3,8 +3,8 @@ let card1img = document.getElementById('imageCard1');
 let card2img = document.getElementById('imageCard2');
 let card1Name = document.getElementById('cardOneName');
 let card2Name = document.getElementById('cardTwoName');
-let card1Cat1Value = document.getElementById('Cat1Val1');
-let card2Cat1Value = document.getElementById('Cat1Val2');
+let card1TopSpeedValue = document.getElementById('topSpeedVal1');
+let card2TopSpeedValue = document.getElementById('topSpeedVal2');
 let card1EngineSizeValue = document.getElementById('engineSizeVal1');
 let card2EngineSizeValue = document.getElementById('engineSizeVal2');
 let card1CoolFactorValue = document.getElementById('coolFactorVal1');
@@ -38,9 +38,9 @@ let playerTwoWins = 0;
 
 
 // Create a car object with specified parameters.
-function theCards(model, Cat1, engineSize, coolFactor, innovation, yearLaunched, image) {
+function makeCar(model, topSpeed, engineSize, coolFactor, innovation, yearLaunched, image) {
     this.model = model,
-    this.Cat1 = Cat1,
+    this.topSpeed = topSpeed,
     this.engineSize = engineSize,
     this.coolFactor = coolFactor,
     this.innovation = innovation,
@@ -53,16 +53,16 @@ let playerOneCards = [];
 let playerTwoCards = [];
 
  // These are the Car Card objects - add any additional Cards here, must have an even number of cards
-const cards1 = new theCards('Mini Cooper', 100, 1.6, 7, 2, 2012, './images/mini.jpg');
-const cards2 = new theCards('Renault Clio', 70, 1.2, 3, 5, 2009, './images/clio.jpg');
-const cards3 = new theCards('Citroen DS3', 80, 1.6, 5, 5, 2010, './images/ds3.jpg');
-const cards4 = new theCards('VW Polo', 110, 1.2, 6, 7, 2005, './images/polo.jpg');
-const cards5 = new theCards('Suzuki Swift', 70, 1.2, 3, 3, 2005, './images/swift.jpg');
-const cards6 = new theCards('Land Rover', 120, 2.0, 7, 7, 1990,'./images/landrover.jpg')
+const mini = new makeCar('Mini Cooper', 100, 1.6, 7, 2, 2012, './images/mini.jpg');
+const clio = new makeCar('Renault Clio', 70, 1.2, 3, 5, 2009, './images/clio.jpg');
+const ds3 = new makeCar('Citroen DS3', 80, 1.6, 5, 5, 2010, './images/ds3.jpg');
+const polo = new makeCar('VW Polo', 110, 1.2, 6, 7, 2005, './images/polo.jpg');
+const swift = new makeCar('Suzuki Swift', 70, 1.2, 3, 3, 2005, './images/swift.jpg');
+const landRover = new makeCar('Land Rover', 120, 2.0, 7, 7, 1990,'./images/landrover.jpg')
 
 
 // Array of all Car cards within the game deck - any cards to be used from the objects above should be added to this array
-const allCars = [cards1, cards2, cards3, cards4, cards5, cards6];
+const allCars = [mini, clio, ds3, polo, swift, landRover];
 
 
 
@@ -161,7 +161,7 @@ function displayCard(i) {
     else {    
         card1Name.innerText = `${playerOneCards[i].model}`;
         card1img.setAttribute('src', `${playerOneCards[i].image}`);
-        card1Cat1Value.innerText = `${playerOneCards[i].Cat1}`;
+        card1TopSpeedValue.innerText = `${playerOneCards[i].topSpeed}`;
         card1EngineSizeValue.innerText = `${playerOneCards[i].engineSize}`;
         card1CoolFactorValue.innerText = `${playerOneCards[i].coolFactor}`;
         card1InnovationValue.innerText = `${playerOneCards[i].innovation}`;
@@ -169,7 +169,7 @@ function displayCard(i) {
 
         card2Name.innerText = `${playerTwoCards[i].model}`;
         card2img.setAttribute('src', `${playerTwoCards[i].image}`);
-        card2Cat1Value.innerText = `${playerTwoCards[i].Cat1}`;
+        card2TopSpeedValue.innerText = `${playerTwoCards[i].topSpeed}`;
         card2EngineSizeValue.innerText = `${playerTwoCards[i].engineSize}`;
         card2CoolFactorValue.innerText = `${playerTwoCards[i].coolFactor}`;
         card2InnovationValue.innerText = `${playerTwoCards[i].innovation}`;
@@ -290,7 +290,7 @@ function showAll() {
 function leftCardClicked(chosenValue) {
     if(chosenValue.innerText === "TOP SPEED") {
         console.log("TOP SPEED CLICKED");
-        if(parseInt(card1Cat1Value.innerHTML) >= parseInt(card2Cat1Value.innerHTML)) {
+        if(parseInt(card1TopSpeedValue.innerHTML) >= parseInt(card2TopSpeedValue.innerHTML)) {
             shiftCardToPlayer1(i);
         }
         else {
@@ -358,7 +358,7 @@ function leftCardClicked(chosenValue) {
 function rightCardClicked(chosenValue) {
     if(chosenValue.innerText === "TOP SPEED") {
         console.log("TOP SPEED CLICKED");
-        if(parseInt(card2Cat1Value.innerHTML) >= parseInt(card1Cat1Value.innerHTML)) {
+        if(parseInt(card2TopSpeedValue.innerHTML) >= parseInt(card1TopSpeedValue.innerHTML)) {
             shiftCardToPlayer2(i);
         }
         else {
