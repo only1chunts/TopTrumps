@@ -5,14 +5,14 @@ let card1Name = document.getElementById('cardOneName');
 let card2Name = document.getElementById('cardTwoName');
 let card1Cat1Value = document.getElementById('Cat1Val1');
 let card2Cat1Value = document.getElementById('Cat1Val2');
-let card1EngineSizeValue = document.getElementById('engineSizeVal1');
-let card2EngineSizeValue = document.getElementById('engineSizeVal2');
-let card1CoolFactorValue = document.getElementById('coolFactorVal1');
-let card2CoolFactorValue = document.getElementById('coolFactorVal2');
-let card1InnovationValue = document.getElementById('innovationVal1');
-let card2InnovationValue = document.getElementById('innovationVal2');
-let card1YearLaunchedValue = document.getElementById('yearLaunchedVal1');
-let card2YearLaunchedValue = document.getElementById('yearLaunchedVal2');
+let card1Cat2Value = document.getElementById('Cat2Val1');
+let card2Cat2Value = document.getElementById('Cat2Val2');
+let card1Cat3Value = document.getElementById('Cat3Val1');
+let card2Cat3Value = document.getElementById('Cat3Val2');
+let card1Cat4Value = document.getElementById('Cat4Val1');
+let card2Cat4Value = document.getElementById('Cat4Val2');
+let card1Cat5Value = document.getElementById('Cat5Val1');
+let card2Cat5Value = document.getElementById('Cat5Val2');
 let playerOneRemaining = document.getElementById('p1Remaining');
 let playerTwoRemaining = document.getElementById('p2Remaining');
 
@@ -38,13 +38,13 @@ let playerTwoWins = 0;
 
 
 // Create a car object with specified parameters.
-function theCards(model, Cat1, engineSize, coolFactor, innovation, yearLaunched, image) {
+function theCards(model, Cat1, Cat2, Cat3, Cat4, Cat5, image) {
     this.model = model,
     this.Cat1 = Cat1,
-    this.engineSize = engineSize,
-    this.coolFactor = coolFactor,
-    this.innovation = innovation,
-    this.yearLaunched = yearLaunched
+    this.Cat2 = Cat2,
+    this.Cat3 = Cat3,
+    this.Cat4 = Cat4,
+    this.Cat5 = Cat5
     this.image = image;
 }
 
@@ -162,18 +162,18 @@ function displayCard(i) {
         card1Name.innerText = `${playerOneCards[i].model}`;
         card1img.setAttribute('src', `${playerOneCards[i].image}`);
         card1Cat1Value.innerText = `${playerOneCards[i].Cat1}`;
-        card1EngineSizeValue.innerText = `${playerOneCards[i].engineSize}`;
-        card1CoolFactorValue.innerText = `${playerOneCards[i].coolFactor}`;
-        card1InnovationValue.innerText = `${playerOneCards[i].innovation}`;
-        card1YearLaunchedValue.innerText = `${playerOneCards[i].yearLaunched}`;
+        card1Cat2Value.innerText = `${playerOneCards[i].Cat2}`;
+        card1Cat3Value.innerText = `${playerOneCards[i].Cat3}`;
+        card1Cat4Value.innerText = `${playerOneCards[i].Cat4}`;
+        card1Cat5Value.innerText = `${playerOneCards[i].Cat5}`;
 
         card2Name.innerText = `${playerTwoCards[i].model}`;
         card2img.setAttribute('src', `${playerTwoCards[i].image}`);
         card2Cat1Value.innerText = `${playerTwoCards[i].Cat1}`;
-        card2EngineSizeValue.innerText = `${playerTwoCards[i].engineSize}`;
-        card2CoolFactorValue.innerText = `${playerTwoCards[i].coolFactor}`;
-        card2InnovationValue.innerText = `${playerTwoCards[i].innovation}`;
-        card2YearLaunchedValue.innerText = `${playerTwoCards[i].yearLaunched}`;}
+        card2Cat2Value.innerText = `${playerTwoCards[i].Cat2}`;
+        card2Cat3Value.innerText = `${playerTwoCards[i].Cat3}`;
+        card2Cat4Value.innerText = `${playerTwoCards[i].Cat4}`;
+        card2Cat5Value.innerText = `${playerTwoCards[i].Cat5}`;}
 }
 
 
@@ -303,7 +303,7 @@ function leftCardClicked(chosenValue) {
     }
     if(chosenValue.innerText === "ENGINE SIZE") {
         console.log("ENGINE SIZE CLICKED");
-        if(parseInt(card1EngineSizeValue.innerHTML) >= parseInt(card2EngineSizeValue.innerHTML)) {
+        if(parseInt(card1Cat2Value.innerHTML) >= parseInt(card2Cat2Value.innerHTML)) {
             shiftCardToPlayer1(i);
         }
         else {
@@ -316,7 +316,7 @@ function leftCardClicked(chosenValue) {
     }
     if(chosenValue.innerText === "COOL FACTOR") {
         console.log("COOL FACTOR CLICKED");
-        if(parseInt(card1CoolFactorValue.innerHTML) >= parseInt(card2CoolFactorValue.innerHTML)) {
+        if(parseInt(card1Cat3Value.innerHTML) >= parseInt(card2Cat3Value.innerHTML)) {
             shiftCardToPlayer1(i);
         }
         else {
@@ -327,9 +327,9 @@ function leftCardClicked(chosenValue) {
         wait(2000).then(() =>
         displayCard());
     }
-    if(chosenValue.innerText === "INNOVATION") {
-        console.log("INNOVATION CLICKED");
-        if(parseInt(card1InnovationValue.innerHTML) >= parseInt(card2InnovationValue.innerHTML)) {
+    if(chosenValue.innerText === "Cat4") {
+        console.log("Cat4 CLICKED");
+        if(parseInt(card1Cat4Value.innerHTML) >= parseInt(card2Cat4Value.innerHTML)) {
             shiftCardToPlayer1(i);
         }
         else {
@@ -342,7 +342,7 @@ function leftCardClicked(chosenValue) {
     }
     if(chosenValue.innerText === "YEAR LAUNCHED") {
         console.log("YEAR LAUNCHED CLICKED");
-        if(parseInt(card1YearLaunchedValue.innerHTML) <= parseInt(card2YearLaunchedValue.innerHTML)) {
+        if(parseInt(card1Cat5Value.innerHTML) <= parseInt(card2Cat5Value.innerHTML)) {
             shiftCardToPlayer1(i);
         }
         else {
@@ -371,7 +371,7 @@ function rightCardClicked(chosenValue) {
     }
     if(chosenValue.innerText === "ENGINE SIZE") {
         console.log("ENGINE SIZE CLICKED");
-        if(parseInt(card2EngineSizeValue.innerHTML) >= parseInt(card1EngineSizeValue.innerHTML)) {
+        if(parseInt(card2Cat2Value.innerHTML) >= parseInt(card1Cat2Value.innerHTML)) {
             shiftCardToPlayer2(i);
         }
         else {
@@ -384,7 +384,7 @@ function rightCardClicked(chosenValue) {
     }
     if(chosenValue.innerText === "COOL FACTOR") {
         console.log("COOL FACTOR CLICKED");
-        if(parseInt(card2CoolFactorValue.innerHTML) >= parseInt(card1CoolFactorValue.innerHTML)) {
+        if(parseInt(card2Cat3Value.innerHTML) >= parseInt(card1Cat3Value.innerHTML)) {
             shiftCardToPlayer2(i);
         }
         else {
@@ -395,9 +395,9 @@ function rightCardClicked(chosenValue) {
         wait(2000).then(() =>
         displayCard());
     }
-    if(chosenValue.innerText === "INNOVATION") {
-        console.log("INNOVATION CLICKED");
-        if(parseInt(card2InnovationValue.innerHTML) >= parseInt(card1InnovationValue.innerHTML)) {
+    if(chosenValue.innerText === "Cat4") {
+        console.log("Cat4 CLICKED");
+        if(parseInt(card2Cat4Value.innerHTML) >= parseInt(card1Cat4Value.innerHTML)) {
             shiftCardToPlayer2(i);
         }
         else {
@@ -410,7 +410,7 @@ function rightCardClicked(chosenValue) {
     }
     if(chosenValue.innerText === "YEAR LAUNCHED") {
         console.log("YEAR LAUNCHED CLICKED");
-        if(parseInt(card2YearLaunchedValue.innerHTML) <= parseInt(card1YearLaunchedValue.innerHTML)) {
+        if(parseInt(card2Cat5Value.innerHTML) <= parseInt(card1Cat5Value.innerHTML)) {
             shiftCardToPlayer2(i);
         }
         else {
