@@ -1,6 +1,8 @@
 // Identify the elements used within the HTML
 let card1img = document.getElementById('imageCard1');
 let card2img = document.getElementById('imageCard2');
+let card1url = document.getElementById('urlCard1');
+let card2url = document.getElementById('urlCard2');
 let card1Name = document.getElementById('cardOneName');
 let card2Name = document.getElementById('cardTwoName');
 let card1Cat1Value = document.getElementById('Cat1Val1');
@@ -38,13 +40,15 @@ let playerTwoWins = 0;
 
 
 // Create a car object with specified parameters.
-function theCards(model, Cat1, Cat2, Cat3, Cat4, Cat5, image) {
+function theCards(model, Cat1, Cat2, Cat3, Cat4, Cat5, url, image) {
+//function theCards(model, Cat1, Cat2, Cat3, Cat4, Cat5, image) {
     this.model = model,
     this.Cat1 = Cat1,
     this.Cat2 = Cat2,
     this.Cat3 = Cat3,
     this.Cat4 = Cat4,
     this.Cat5 = Cat5
+	this.url = url,
     this.image = image;
 }
 
@@ -53,16 +57,27 @@ let playerOneCards = [];
 let playerTwoCards = [];
 
  // These are the Car Card objects - add any additional Cards here, must have an even number of cards
-const cards1 = new theCards('Mini Cooper', 100, 1.6, 7, 2, 2012, './images/mini.jpg');
-const cards2 = new theCards('Renault Clio', 70, 1.2, 3, 5, 2009, './images/clio.jpg');
-const cards3 = new theCards('Citroen DS3', 80, 1.6, 5, 5, 2010, './images/ds3.jpg');
-const cards4 = new theCards('VW Polo', 110, 1.2, 6, 7, 2005, './images/polo.jpg');
-const cards5 = new theCards('Suzuki Swift', 70, 1.2, 3, 3, 2005, './images/swift.jpg');
-const cards6 = new theCards('Land Rover', 120, 2.0, 7, 7, 1990,'./images/landrover.jpg')
+const cards1 = new theCards('Darwins Finch', 2012.08, 1, 5, 284, 0.29, 'https://doi.org/10.5524/100040' ,'./images/100040.jpg');
+const cards2 = new theCards('Puerto Rican Parrot', 2012.09, 1, 24, 568, 1.8,'https://doi.org/10.5524/100039', './images/100039.jpg');
+const cards3 = new theCards('Pigeonpea', 2011.12, 1, 5, 157.6, 0.18, 'https://doi.org/10.5524/100028' ,'./images/100028.jpg');
+const cards4 = new theCards('Crab-Eating Macaque', 2011.06, 1, 29, 1024, 2.4,'https://doi.org/10.5524/100003' ,'./images/100003.jpg');
+const cards5 = new theCards('Tibetan antelope', 2011.12, 1, 468, 2317, 232,'https://doi.org/10.5524/100027' ,'./images/100027.jpg');
+const cards6 = new theCards('Cucumber', 2011.12, 1, 16, 67, 0.76,'https://doi.org/10.5524/100025' ,'./images/100025.jpg')
+const cards7 = new theCards('Rhesus Macaque', 2011.06, 1, 10, 776, 0.98 ,'https://doi.org/10.5524/100002' ,'./images/100002.jpg')
+const cards8 = new theCards('Bald Eagle', 2014.05, 1, 5, 8.16, 384,'https://doi.org/10.5524/101040' ,'./images/101040.png')
+
+//const cards1 = new theCards('Darwins Finch', 2012.08, 1.6, 7, 2, 2012, 'https://doi.org/10.5524/100040' ,'./images/mini.jpg');
+//const cards2 = new theCards('Puerto Rican Parrot', 2012.09, 1.2, 3, 5, 2009, 'https://doi.org/10.5524/100039', './images/clio.jpg');
+//const cards3 = new theCards('Pigeonpea', 2011.12, 1.6, 5, 5, 2010, 'https://doi.org/10.5524/100028' ,'./images/ds3.jpg');
+//const cards4 = new theCards('Crab-Eating Macaque', 2011.06, 1.2, 6, 7, 2005, 'https://doi.org/10.5524/100003' ,'./images/polo.jpg');
+//const cards5 = new theCards('Tibetan antelope', 2011.12, 1.2, 3, 3, 2005, 'https://doi.org/10.5524/100027' ,'./images/swift.jpg');
+//const cards6 = new theCards('Cucumber', 2011.12, 2.0, 7, 7, 1990, 'https://doi.org/10.5524/100025' ,'./images/landrover.jpg');
+//const cards7 = new theCards('Rhesus Macaque', 2011.06, 2.0, 7, 7, 1990, 'https://doi.org/10.5524/100002' ,'./images/landrover.jpg');
+//const cards8 = new theCards('Bald Eagle', 2014.05, 2.0, 7, 7, 1990, 'https://doi.org/10.5524/101040' ,'./images/landrover.jpg')
 
 
 // Array of all Car cards within the game deck - any cards to be used from the objects above should be added to this array
-const allCars = [cards1, cards2, cards3, cards4, cards5, cards6];
+const allCars = [cards1, cards2, cards3, cards4, cards5, cards6, cards7, cards8];
 
 
 
@@ -161,6 +176,7 @@ function displayCard(i) {
     else {    
         card1Name.innerText = `${playerOneCards[i].model}`;
         card1img.setAttribute('src', `${playerOneCards[i].image}`);
+		card1url.setAttribute('href', `${playerOneCards[i].url}`);
         card1Cat1Value.innerText = `${playerOneCards[i].Cat1}`;
         card1Cat2Value.innerText = `${playerOneCards[i].Cat2}`;
         card1Cat3Value.innerText = `${playerOneCards[i].Cat3}`;
@@ -169,6 +185,7 @@ function displayCard(i) {
 
         card2Name.innerText = `${playerTwoCards[i].model}`;
         card2img.setAttribute('src', `${playerTwoCards[i].image}`);
+		card2url.setAttribute('href', `${playerTwoCards[i].url}`);
         card2Cat1Value.innerText = `${playerTwoCards[i].Cat1}`;
         card2Cat2Value.innerText = `${playerTwoCards[i].Cat2}`;
         card2Cat3Value.innerText = `${playerTwoCards[i].Cat3}`;
@@ -288,9 +305,9 @@ function showAll() {
     deck and the win/lose animations are executed.
 */
 function leftCardClicked(chosenValue) {
-    if(chosenValue.innerText === "TOP SPEED") {
-        console.log("TOP SPEED CLICKED");
-        if(parseInt(card1Cat1Value.innerHTML) >= parseInt(card2Cat1Value.innerHTML)) {
+    if(chosenValue.innerText === "Release Date") {
+        console.log("Release Date CLICKED");
+        if(parseInt(card1Cat1Value.innerHTML) <= parseInt(card2Cat1Value.innerHTML)) {
             shiftCardToPlayer1(i);
         }
         else {
@@ -301,8 +318,8 @@ function leftCardClicked(chosenValue) {
         wait(2000).then(() =>
         displayCard());
     }
-    if(chosenValue.innerText === "ENGINE SIZE") {
-        console.log("ENGINE SIZE CLICKED");
+    if(chosenValue.innerText === "No.Samples") {
+        console.log("No.Samples CLICKED");
         if(parseInt(card1Cat2Value.innerHTML) >= parseInt(card2Cat2Value.innerHTML)) {
             shiftCardToPlayer1(i);
         }
@@ -314,8 +331,8 @@ function leftCardClicked(chosenValue) {
         wait(2000).then(() =>
         displayCard());
     }
-    if(chosenValue.innerText === "COOL FACTOR") {
-        console.log("COOL FACTOR CLICKED");
+    if(chosenValue.innerText === "No.Files") {
+        console.log("No.Files CLICKED");
         if(parseInt(card1Cat3Value.innerHTML) >= parseInt(card2Cat3Value.innerHTML)) {
             shiftCardToPlayer1(i);
         }
@@ -327,8 +344,8 @@ function leftCardClicked(chosenValue) {
         wait(2000).then(() =>
         displayCard());
     }
-    if(chosenValue.innerText === "Cat4") {
-        console.log("Cat4 CLICKED");
+    if(chosenValue.innerText === "Largest File(Mb)") {
+        console.log("Largest File(Mb) CLICKED");
         if(parseInt(card1Cat4Value.innerHTML) >= parseInt(card2Cat4Value.innerHTML)) {
             shiftCardToPlayer1(i);
         }
@@ -340,9 +357,9 @@ function leftCardClicked(chosenValue) {
         wait(2000).then(() =>
         displayCard());
     }
-    if(chosenValue.innerText === "YEAR LAUNCHED") {
-        console.log("YEAR LAUNCHED CLICKED");
-        if(parseInt(card1Cat5Value.innerHTML) <= parseInt(card2Cat5Value.innerHTML)) {
+    if(chosenValue.innerText === "Total Volume(Gb)") {
+        console.log("Total Volume(Gb) CLICKED");
+        if(parseInt(card1Cat5Value.innerHTML) >= parseInt(card2Cat5Value.innerHTML)) {
             shiftCardToPlayer1(i);
         }
         else {
@@ -356,9 +373,9 @@ function leftCardClicked(chosenValue) {
 };
 
 function rightCardClicked(chosenValue) {
-    if(chosenValue.innerText === "TOP SPEED") {
-        console.log("TOP SPEED CLICKED");
-        if(parseInt(card2Cat1Value.innerHTML) >= parseInt(card1Cat1Value.innerHTML)) {
+    if(chosenValue.innerText === "Release Date") {
+        console.log("Release Date CLICKED");
+        if(parseInt(card2Cat1Value.innerHTML) <= parseInt(card1Cat1Value.innerHTML)) {
             shiftCardToPlayer2(i);
         }
         else {
@@ -369,8 +386,8 @@ function rightCardClicked(chosenValue) {
         wait(2000).then(() =>
         displayCard());
     }
-    if(chosenValue.innerText === "ENGINE SIZE") {
-        console.log("ENGINE SIZE CLICKED");
+    if(chosenValue.innerText === "No.Samples") {
+        console.log("No.Samples CLICKED");
         if(parseInt(card2Cat2Value.innerHTML) >= parseInt(card1Cat2Value.innerHTML)) {
             shiftCardToPlayer2(i);
         }
@@ -382,8 +399,8 @@ function rightCardClicked(chosenValue) {
         wait(2000).then(() =>
         displayCard());
     }
-    if(chosenValue.innerText === "COOL FACTOR") {
-        console.log("COOL FACTOR CLICKED");
+    if(chosenValue.innerText === "No.Files") {
+        console.log("No.Files CLICKED");
         if(parseInt(card2Cat3Value.innerHTML) >= parseInt(card1Cat3Value.innerHTML)) {
             shiftCardToPlayer2(i);
         }
@@ -395,8 +412,8 @@ function rightCardClicked(chosenValue) {
         wait(2000).then(() =>
         displayCard());
     }
-    if(chosenValue.innerText === "Cat4") {
-        console.log("Cat4 CLICKED");
+    if(chosenValue.innerText === "Largest File(Mb)") {
+        console.log("Largest File(Mb) CLICKED");
         if(parseInt(card2Cat4Value.innerHTML) >= parseInt(card1Cat4Value.innerHTML)) {
             shiftCardToPlayer2(i);
         }
@@ -408,9 +425,9 @@ function rightCardClicked(chosenValue) {
         wait(2000).then(() =>
         displayCard());
     }
-    if(chosenValue.innerText === "YEAR LAUNCHED") {
-        console.log("YEAR LAUNCHED CLICKED");
-        if(parseInt(card2Cat5Value.innerHTML) <= parseInt(card1Cat5Value.innerHTML)) {
+    if(chosenValue.innerText === "Total Volume(Gb)") {
+        console.log("Total Volume(Gb) CLICKED");
+        if(parseInt(card2Cat5Value.innerHTML) >= parseInt(card1Cat5Value.innerHTML)) {
             shiftCardToPlayer2(i);
         }
         else {
