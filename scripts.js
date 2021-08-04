@@ -65,6 +65,10 @@ const cards5 = new theCards('Tibetan antelope', 2011.12, 1, 468, 2317, 232,'http
 const cards6 = new theCards('Cucumber', 2011.12, 1, 16, 67, 0.76,'https://doi.org/10.5524/100025' ,'./images/100025.jpg')
 const cards7 = new theCards('Rhesus Macaque', 2011.06, 1, 10, 776, 0.98 ,'https://doi.org/10.5524/100002' ,'./images/100002.jpg')
 const cards8 = new theCards('Bald Eagle', 2014.05, 1, 5, 8.16, 384,'https://doi.org/10.5524/101040' ,'./images/101040.png')
+const cards9 = new theCards('Fonio Millet', 2021.01, 1, 48, 6768, 7.03, 'https://doi.org/10.5524/100857' ,'./images/100857.png');
+const cards10 = new theCards('Hazelnut', 2021.03, 2, 35, 353.56, 1.21, 'https://doi.org/10.5524/100877' ,'./images/100877.png');
+const cards11 = new theCards('Yellowhorn Tree', 2019.03, 5, 35, 485.86, 2.24, 'https://doi.org/10.5524/100606' ,'./images/100606.png');
+const cards12 = new theCards('Pink Ipê Tree', 2017.11, 2, 16, 140.1, 0.2, 'https://doi.org/10.5524/100379' ,'./images/100379.jpg');
 
 //const cards1 = new theCards('Darwins Finch', 2012.08, 1.6, 7, 2, 2012, 'https://doi.org/10.5524/100040' ,'./images/mini.jpg');
 //const cards2 = new theCards('Puerto Rican Parrot', 2012.09, 1.2, 3, 5, 2009, 'https://doi.org/10.5524/100039', './images/clio.jpg');
@@ -77,7 +81,7 @@ const cards8 = new theCards('Bald Eagle', 2014.05, 1, 5, 8.16, 384,'https://doi.
 
 
 // Array of all Car cards within the game deck - any cards to be used from the objects above should be added to this array
-const allCars = [cards1, cards2, cards3, cards4, cards5, cards6, cards7, cards8];
+const allCars = [cards1, cards2, cards3, cards4, cards5, cards6, cards7, cards8, cards9, cards10, cards11, cards12];
 
 
 
