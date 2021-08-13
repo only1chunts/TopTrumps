@@ -14,4 +14,4 @@ Planned Updates/Additions:
 * A landing page will be added to introduce the website.
 * Additional genre's will be added to give the user a choice of deck, which will be selectable on the landing page.
 * Possibly adding in a "1 player vs Computer" mode
-
+* Need to correct the number of games scoring display, currently it just says "-" if both player have won equal numbers of games, "P1" if player 1 has won more or "p2" if player 2 has won more, I would like it to display the scores e.g. "1 - 1" 
